@@ -22,6 +22,14 @@
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 12px 8px; border-bottom: 1px solid #eee; text-align: left; }
         th { background: #f4f6f8; }
+        .form-section { background: #f9fafb; padding: 20px; border-radius: 6px; margin: 30px 0; }
+        .form-section h3 { margin-top: 0; color: #2d3e50; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #333; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        button { background: #2d3e50; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; }
+        button:hover { background: #1a252f; }
         @media (max-width: 700px) {
             .cards { flex-direction: column; }
         }
@@ -31,48 +39,28 @@
     <div class="header">
         <h1>Dashboard</h1>
     </div>
-    <div class="container">
-        <div class="cards">
-            <div class="card">
-                <h2>120</h2>
-                <p>Users</p>
-            </div>
-            <div class="card">
-                <h2>45</h2>
-                <p>Projects</p>
-            </div>
-            <div class="card">
-                <h2>8</h2>
-                <p>Tasks Due</p>
-            </div>
+        <div class="form-section">
+            <h3>Add User</h3>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
-        <h3>Recent Activity</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Action</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Alice</td>
-                    <td>Created a new project</td>
-                    <td>2024-06-10</td>
-                </tr>
-                <tr>
-                    <td>Bob</td>
-                    <td>Completed a task</td>
-                    <td>2024-06-09</td>
-                </tr>
-                <tr>
-                    <td>Carol</td>
-                    <td>Added a comment</td>
-                    <td>2024-06-08</td>
-                </tr>
-            </tbody>
-        </table>
+        <h3>
+            <span>LOGS</span>
+            <p> {{ res }}</p>
+        </h3>
     </div>
 </body>
 </html>
